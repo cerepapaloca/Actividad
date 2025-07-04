@@ -9,7 +9,7 @@ public abstract class DataBaseMySql {
 
     private static final String HOST = "localhost";
     private static final String PORT = "3306";
-    private static final String DATABASE = "abd";
+    private static final String DATABASE = "actividad";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
