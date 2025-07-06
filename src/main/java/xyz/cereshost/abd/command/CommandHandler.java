@@ -1,6 +1,7 @@
 package xyz.cereshost.abd.command;
 
-import java.util.ArrayList;
+import org.jetbrains.annotations.NotNull;
+
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -20,7 +21,7 @@ public class CommandHandler {
         }
     }
 
-    public void registerCommand(Command... command) {
+    public void registerCommand(Command @NotNull ... command) {
         for (Command com : command) {
             commands.put(com.getCommand(), com);
             for (String alises : com.getAliases()) {

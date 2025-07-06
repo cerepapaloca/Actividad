@@ -164,7 +164,7 @@ public class Arguments {
      * @return Argumento
      */
 
-    public static Arguments createWithFlags(@NotNull Command command, String... args) {
+    public static @NotNull Arguments createWithFlags(@NotNull Command command, String... args) {
         if (command instanceof Flags flags){
             List<String> nameFlags = flags.getNameFlags();
             List<String> finalArgs = new ArrayList<>();
