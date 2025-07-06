@@ -22,7 +22,7 @@ public abstract class DataBaseMySql {
         try {
             connection = DriverManager.getConnection(url, USER, PASSWORD);
         } catch (SQLException e) {
-            Service.sendLog("Error al conectar con la base de datos", e);
+            Service.sendMessage("Error al conectar con la base de datos", e);
         }
     }
 
