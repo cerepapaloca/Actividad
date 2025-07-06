@@ -1,4 +1,4 @@
-package ceres.abd.command;
+package xyz.cereshost.abd.command;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package ceres.abd.model;
+package xyz.cereshost.abd.model;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

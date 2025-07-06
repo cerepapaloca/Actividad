@@ -1,7 +1,7 @@
 /**
  * Código copiado de otros proyectos
  */
-package ceres.abd.command;
+package xyz.cereshost.abd.command;
 
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;

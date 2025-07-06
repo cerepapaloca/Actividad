@@ -1,9 +1,9 @@
 /**
  * Código copiado de otros proyectos
  */
-package ceres.abd.command;
+package xyz.cereshost.abd.command;
 
-import ceres.abd.Utils;
+import xyz.cereshost.abd.Utils;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;

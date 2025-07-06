@@ -1,4 +1,4 @@
-package ceres.abd.model;
+package xyz.cereshost.abd.model;
 
 public class Client extends User {
     public Client(int dni, String name, String email, int telephone) {

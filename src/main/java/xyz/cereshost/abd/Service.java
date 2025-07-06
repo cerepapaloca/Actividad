@@ -1,4 +1,4 @@
-package ceres.abd;
+package xyz.cereshost.abd;
 
 import lombok.experimental.UtilityClass;
 import org.jetbrains.annotations.NotNull;
