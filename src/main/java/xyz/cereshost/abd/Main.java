@@ -11,6 +11,7 @@ import xyz.cereshost.abd.command.Command;
 import xyz.cereshost.abd.command.CommandHandler;
 import xyz.cereshost.abd.command.commands.ExitCommand;
 import xyz.cereshost.abd.command.commands.HelpCommand;
+import xyz.cereshost.abd.command.commands.ShowCommand;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -25,13 +26,15 @@ public class Main {
     static{
         commandHandler.registerCommand(
                 new HelpCommand(),
-                new ExitCommand()
+                new ExitCommand(),
+                new ShowCommand()
         );
     }
 
     public static void main(String[] a) throws IOException {
         Terminal terminal = TerminalBuilder.builder().system(true).build();
         Completer completer = new StringsCompleter("start", "stop", "status", "restart");
+        Service.sendMessage("Bienvenido. Usa help para ver todos los comandos");
 
         LineReader reader = LineReaderBuilder.builder()
                 .terminal(terminal)
