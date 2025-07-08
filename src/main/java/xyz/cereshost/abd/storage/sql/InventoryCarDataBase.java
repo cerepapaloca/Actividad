@@ -14,11 +14,15 @@ import java.util.List;
 
 public class InventoryCarDataBase extends DataBaseMySql<CarData> {
 
+    public InventoryCarDataBase() {
+        super();
+    }
+
     @Override
     protected String getSqlTable() {
         return """
-                CREATE TABLE `InvetarioCarros` (
-                  `matricula` varchat(30) PRIMARY KEY,
+                CREATE TABLE IF NOT EXISTS `InvetarioCarros` (
+                  `matricula` varchar(30) PRIMARY KEY,
                   `model` varchar(30) NOT NULL,
                   `paint` varchar(30),
                   `manufacter` varchar(30),

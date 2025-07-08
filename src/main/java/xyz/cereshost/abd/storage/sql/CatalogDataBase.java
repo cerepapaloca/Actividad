@@ -6,21 +6,22 @@ import xyz.cereshost.abd.Service;
 import xyz.cereshost.abd.model.CatalogData;
 import xyz.cereshost.abd.storage.DataBaseMySql;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 public class CatalogDataBase extends DataBaseMySql<CatalogData> {
+    public CatalogDataBase() {
+        super();
+    }
+
     @Override
     protected String getSqlTable() {
         return """
-                CREATE TABLE `Catalogo` (
+                CREATE TABLE IF NOT EXISTS `Catalogo` (
                   `modelo` varchar(30) PRIMARY KEY,
                   `manufacter` varchar(30),
                   `displacement` varchar(30),

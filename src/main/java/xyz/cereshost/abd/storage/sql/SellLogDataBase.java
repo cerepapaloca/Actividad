@@ -14,15 +14,19 @@ import java.util.UUID;
 
 public class SellLogDataBase extends DataBaseMySql<LogSellData> {
 
+    public SellLogDataBase() {
+        super();
+    }
+
     @Override
     protected String getSqlTable() {
         return """
-                CREATE TABLE `Ventas` (
-                  `id` vachar(36) PRIMARY KEY,
+                CREATE TABLE IF NOT EXISTS `Ventas` (
+                  `id` varchar(36) PRIMARY KEY,
                   `model` varchar(30) NOT NULL,
                   `cliente` varchar(255) NOT NULL,
-                  `Vendedor` varchar(255) NOT NULL,
-                  `Matricula` varcahr(10) NOT NULL,
+                  `sellers` varchar(255) NOT NULL,
+                  `tuition` varchar(10) NOT NULL,
                   `fecha` timestamp,
                   `precio` bigint
                 );
@@ -70,8 +74,8 @@ public class SellLogDataBase extends DataBaseMySql<LogSellData> {
             statement.setString(1, UUID.randomUUID().toString());
             statement.setString(2, data.model());
             statement.setString(3, data.cliente());
-            statement.setString(4, data.Vendedor());
-            statement.setString(5, data.Matricula());
+            statement.setString(4, data.sellers());
+            statement.setString(5, data.tuition());
             statement.setLong(6, data.precio());
         } catch (SQLException e) {
             Service.sendMessage("Error al agregar el registro", e);

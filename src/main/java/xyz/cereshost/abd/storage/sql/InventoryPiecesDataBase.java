@@ -2,7 +2,6 @@ package xyz.cereshost.abd.storage.sql;
 
 import org.jetbrains.annotations.NotNull;
 import xyz.cereshost.abd.Service;
-import xyz.cereshost.abd.model.CarData;
 import xyz.cereshost.abd.model.PiecesData;
 import xyz.cereshost.abd.storage.DataBaseMySql;
 
@@ -14,10 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryPiecesDataBase extends DataBaseMySql<PiecesData> {
+    public InventoryPiecesDataBase() {
+        super();
+    }
+
     @Override
     protected String getSqlTable() {
         return """
-                CREATE TABLE `InvetarioPiezas` (
+                CREATE TABLE IF NOT EXISTS `InvetarioPiezas` (
                   `Serie` bigint PRIMARY KEY,
                   `fecha` timestamp
                 );

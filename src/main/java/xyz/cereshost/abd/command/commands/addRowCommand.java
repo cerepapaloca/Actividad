@@ -8,8 +8,8 @@ import xyz.cereshost.abd.model.*;
 
 import java.util.UUID;
 
-public class addRow extends Command {
-    public addRow(){
+public class addRowCommand extends Command {
+    public addRowCommand(){
         super("addRow", "Añades un registro de algo");
     }
 

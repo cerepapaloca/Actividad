@@ -5,6 +5,7 @@ import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import xyz.cereshost.abd.command.Command;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 
 @UtilityClass
@@ -29,23 +30,19 @@ public class Utils {
 
         int[] ints = new int[length];
         int i = 0 ;
-        for (String colum : strings){
-            ints[i] = colum.length();
+        for (String s : strings){
+            ints[i++] = s.length();
         }
-        return Arrays.stream(ints).max().orElse( 0);
+        return Arrays.stream(ints).max().orElse(0);
     }
 
     public @NotNull String applySpace(int margin, @NotNull String s, Iterable<String>  strings){
-        return s + " ".repeat(Math.max(0, (getMax(strings) + margin) - s.length()));
+        return s + " ".repeat(Math.max(0, (Math.max(getMax(strings), s.length()) + margin) - s.length()));
     }
 
-    @Contract(pure = true)
-    public static @NotNull String getStackTrace(StackTraceElement @NotNull [] traceElements) {
-        StringBuilder builder = new StringBuilder();
-        for (StackTraceElement element : traceElements) {
-            builder.append(element.toString()).append("\n\t");
-        }
-        return builder.toString();
+    public String dateToString(long date) {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        return formatter.format(date);
     }
 
 

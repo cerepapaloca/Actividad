@@ -9,28 +9,21 @@ import java.util.List;
 @Getter
 public abstract class DataBaseMySql<T> {
     private static Connection connection;
-    private boolean isActive;
 
-    private static final String HOST = "localhost";
+    private static final String HOST = "127.0.0.1";
     private static final String PORT = "3306";
     private static final String DATABASE = "actividad";
     private static final String USER = "root";
     private static final String PASSWORD = "";
 
-    protected DataBaseMySql() {
-        try (Connection connection = getConnection()) {//revisa si la tabla existe
-            DatabaseMetaData dbMetaData = connection.getMetaData();
-            try (ResultSet resultSet = dbMetaData.getTables(null, null, "register", null)) {
-                Service.sendMessage("DataBase %s Ok", Class.class.getSimpleName());
-            }
-        } catch (RuntimeException | SQLException e) {
-            try (Connection connection = getConnection();
-                 Statement statement = connection.createStatement()) {
-                statement.executeUpdate(getSqlTable());
-                Service.sendMessage("DataBase %s Creada", Class.class.getSimpleName());
-            } catch (SQLException ee) {
-                throw new RuntimeException(ee);
-            }
+    @SuppressWarnings("SqlSourceToSinkFlow")
+    public DataBaseMySql() {
+        try (Connection connection = getConnection();
+             Statement statement = connection.createStatement()) {
+            statement.executeUpdate(getSqlTable());
+            Service.sendMessage("Tabla %s ok", this.getClass().getSimpleName());
+        } catch (SQLException e) {
+            Service.sendMessage("Error al crear la tabla", e);
         }
     }
 

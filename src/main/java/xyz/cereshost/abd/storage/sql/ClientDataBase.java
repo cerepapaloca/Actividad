@@ -2,7 +2,6 @@ package xyz.cereshost.abd.storage.sql;
 
 import org.jetbrains.annotations.NotNull;
 import xyz.cereshost.abd.Service;
-import xyz.cereshost.abd.model.CatalogData;
 import xyz.cereshost.abd.model.ClientData;
 import xyz.cereshost.abd.storage.DataBaseMySql;
 
@@ -14,10 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClientDataBase extends DataBaseMySql<ClientData> {
+    public ClientDataBase() {
+        super();
+    }
+
     @Override
     protected String getSqlTable() {
         return """
-                CREATE TABLE `Cliente` (
+                CREATE TABLE IF NOT EXISTS `Cliente` (
                   `dni` varchar(255) PRIMARY KEY,
                   `nombre` varchar(64) NOT NULL,
                   `direccion` varchar(30),

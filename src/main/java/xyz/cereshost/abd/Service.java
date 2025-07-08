@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 public class Service {
 
     public void sendMessage(String log, String... args) {
-        System.out.printf(log, (Object[]) args);
+        System.out.printf(log + "\n", (Object[]) args);
     }
 
     public void sendMessage(String log, @NotNull Exception e, String... args) {

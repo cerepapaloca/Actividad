@@ -24,7 +24,7 @@ public class HelpCommand extends Command {
         List<String> description = commands.stream().map(Command::getDescription).toList();
 
         for (Command command : commands) {
-            builder.append("\t").append(Utils.applySpace(2, command.getCommand(), names)).append(Utils.applySpace(0, command.getDescription(), description)).append("\n");
+            builder.append("\t").append(Utils.applySpace(2, command.getCommand(), names)).append("|").append(Utils.applySpace(0, command.getDescription(), description)).append("\n");
         }
 
 

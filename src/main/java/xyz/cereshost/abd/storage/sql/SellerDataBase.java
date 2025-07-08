@@ -12,10 +12,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SellerDataBase extends DataBaseMySql<SellerData> {
+    public SellerDataBase() {
+        super();
+    }
+
     @Override
     protected String getSqlTable() {
         return """
-                CREATE TABLE `Vendedor` (
+                CREATE TABLE IF NOT EXISTS `sellers` (
                   `dni` varchar(255) PRIMARY KEY,
                   `nombre` varchar(64) NOT NULL,
                   `address` varchar(30),
