@@ -20,8 +20,6 @@ public class Main {
     @Setter
     @Getter
     private static boolean isRunning = true;
-    @Getter
-    private static Main instance;
 
     public static final CatalogDataBase CATALOG_DATA_BASE = new CatalogDataBase();
     public static final ClientDataBase CLIENT_DATA_BASE = new ClientDataBase();
