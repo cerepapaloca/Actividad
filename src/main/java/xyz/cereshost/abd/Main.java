@@ -7,7 +7,6 @@ import org.jline.reader.impl.DefaultParser;
 import org.jline.reader.impl.completer.StringsCompleter;
 import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
-import xyz.cereshost.abd.command.Command;
 import xyz.cereshost.abd.command.CommandHandler;
 import xyz.cereshost.abd.command.commands.ExitCommand;
 import xyz.cereshost.abd.command.commands.HelpCommand;
@@ -47,10 +46,14 @@ public class Main {
             try {
                 line = reader.readLine("> ");
                 String[] args = line.split(" ");
-                String repose = commandHandler.onCommand(args[0], Arrays.copyOfRange(args, 1, args.length));
-                if (repose != null) {
-                    System.out.println(repose);
-                }
+                try {
+                    String repose = commandHandler.onCommand(args[0], Arrays.copyOfRange(args, 1, args.length));
+                    if (repose != null) {
+                        System.out.println(repose);
+                    }
+                } catch (Exception e) {
+                    Service.sendMessage("Error al ejecutar el comando: " + args[0], e);
+               }
             } catch (UserInterruptException | EndOfFileException e) {
                 break;
             }

@@ -39,4 +39,14 @@ public class Utils {
         return s + " ".repeat(Math.max(0, (getMax(strings) + margin) - s.length()));
     }
 
+    @Contract(pure = true)
+    public static @NotNull String getStackTrace(StackTraceElement @NotNull [] traceElements) {
+        StringBuilder builder = new StringBuilder();
+        for (StackTraceElement element : traceElements) {
+            builder.append(element.toString()).append("\n\t");
+        }
+        return builder.toString();
+    }
+
+
 }
