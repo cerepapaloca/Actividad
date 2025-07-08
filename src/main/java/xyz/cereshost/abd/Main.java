@@ -11,6 +11,7 @@ import xyz.cereshost.abd.command.CommandHandler;
 import xyz.cereshost.abd.command.commands.ExitCommand;
 import xyz.cereshost.abd.command.commands.HelpCommand;
 import xyz.cereshost.abd.command.commands.ShowCommand;
+import xyz.cereshost.abd.storage.sql.*;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -21,6 +22,15 @@ public class Main {
     @Setter
     @Getter
     private static boolean isRunning = true;
+    @Getter
+    private static Main instance;
+
+    public static final CatalogDataBase CATALOG_DATA_BASE = new CatalogDataBase();
+    public static final ClientDataBase CLIENT_DATA_BASE = new ClientDataBase();
+    public static final InventoryCarDataBase INVENTORY_CAR_DATA_BASE = new InventoryCarDataBase();
+    public static final InventoryPiecesDataBase INVENTORY_PIECES_DATA_BASE = new InventoryPiecesDataBase();
+    public static final SellerDataBase SELLER_DATA_BASE = new SellerDataBase();
+    public static final SellLogDataBase SELL_LOG_DATA_BASE = new SellLogDataBase();
 
     static{
         commandHandler.registerCommand(
@@ -31,6 +41,7 @@ public class Main {
     }
 
     public static void main(String[] a) throws IOException {
+        instance = new Main();
         Terminal terminal = TerminalBuilder.builder().system(true).build();
         Completer completer = new StringsCompleter("start", "stop", "status", "restart");
         Service.sendMessage("Bienvenido. Usa help para ver todos los comandos");

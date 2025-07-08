@@ -7,11 +7,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @RequiredArgsConstructor
-public abstract class User {
+public abstract class UserData {
 
     private final int dni;
     private final String name;
-    private final String email;
+    private final String address;
     private final int telephone;
 
 }

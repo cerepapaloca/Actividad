@@ -4,9 +4,10 @@ import lombok.Getter;
 import xyz.cereshost.abd.Service;
 
 import java.sql.*;
+import java.util.List;
 
 @Getter
-public abstract class DataBaseMySql {
+public abstract class DataBaseMySql<T> {
     private static Connection connection;
     private boolean isActive;
 
@@ -48,5 +49,12 @@ public abstract class DataBaseMySql {
     }
 
     protected abstract String getSqlTable();
+
+    public abstract T getData(String value);
+
+    public abstract List<T> getAll();
+
+    public abstract void addRow(T data);
+
 
 }
