@@ -24,7 +24,7 @@ public class DeleteCommand extends Command {
                     Service.sendMessage("Tienes que añadir la id");
                 }
             }
-            case "car" -> {
+            case "carro" -> {
                 if (arg.length() >= 2){
                     Main.INVENTORY_CAR_DATA_BASE.removeRow(arg.get(1));
                 }else {

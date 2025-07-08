@@ -68,7 +68,7 @@ public class ShowCommand extends Command {
                     Service.sendMessage(builder.toString());
                 }
             }
-            case "car" -> {
+            case "carro" -> {
                 if (arg.length() == 2){
                     CarData data = Main.INVENTORY_CAR_DATA_BASE.getData(arg.get(1));
                     List<String> tuitions = List.of(data.tuition(), "Matriculas");
@@ -87,7 +87,9 @@ public class ShowCommand extends Command {
                             .append(Utils.applySpace(1, "Precios", prices)).append("|")
                             .append("\n");
 
-                    builder.append("\t").append(Utils.applySpace(1, data.model(), models)).append("|")
+                    builder.append("\t").append(Utils.applySpace(1, data.tuition(), tuitions)).append("|")
+                            .append(Utils.applySpace(1, data.model(), models)).append("|")
+                            .append(Utils.applySpace(1, data.paint(), paint)).append("|")
                             .append(Utils.applySpace(1, data.manufacturer(), manufacturers)).append("|")
                             .append(Utils.applySpace(1, data.displacement(), displacements)).append("|")
                             .append(Utils.applySpace(1, String.valueOf(data.price()), prices)).append("|")

@@ -23,7 +23,7 @@ public class AddCommand extends Command {
                     Service.sendMessage("Tienes que añadir [Modelo] [Fabricante] [Cilidrada] [Precio]");
                 }
             }
-            case "car" -> {
+            case "carro" -> {
                 if (arg.length() >= 6){
                     Main.INVENTORY_CAR_DATA_BASE.addRow(new CarData(arg.get(1), arg.get(2), arg.get(3), arg.get(4), arg.get(5), Long.parseLong(arg.get(6))));
                 }else {

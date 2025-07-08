@@ -39,6 +39,7 @@ public class InventoryCarDataBase extends DataBaseMySql<CarData> {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, s);
             ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
             return new CarData(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getLong(6));
         } catch (SQLException e) {
             Service.sendMessage("Error al leer el registro", e);
