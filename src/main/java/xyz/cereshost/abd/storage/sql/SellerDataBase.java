@@ -75,4 +75,19 @@ public class SellerDataBase extends DataBaseMySql<SellerData> {
             Service.sendMessage("Error al agregar el registro", e);
         }
     }
+
+    @Override
+    public void removeRow(String value) {
+        String sql = "DELETE FROM `Vendedor` WHERE dni = ?";
+
+        try (Connection connection = getConnection()){
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, value);
+            statement.execute();
+
+        } catch (SQLException e) {
+            Service.sendMessage("Error al eliminar una fila", e);
+        }
+    }
 }

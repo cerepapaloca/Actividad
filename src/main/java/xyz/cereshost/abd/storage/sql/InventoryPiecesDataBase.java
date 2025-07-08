@@ -71,4 +71,19 @@ public class InventoryPiecesDataBase extends DataBaseMySql<PiecesData> {
             Service.sendMessage("Error al agregar el registro", e);
         }
     }
+
+    @Override
+    public void removeRow(String value) {
+        String sql = "DELETE FROM `InvetarioPiezas` WHERE Serie = ?";
+
+        try (Connection connection = getConnection()){
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, value);
+            statement.execute();
+
+        } catch (SQLException e) {
+            Service.sendMessage("Error al eliminar una fila", e);
+        }
+    }
 }

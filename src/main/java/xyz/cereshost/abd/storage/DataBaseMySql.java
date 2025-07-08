@@ -49,5 +49,7 @@ public abstract class DataBaseMySql<T> {
 
     public abstract void addRow(T data);
 
+    public abstract void removeRow(String value);
+
 
 }

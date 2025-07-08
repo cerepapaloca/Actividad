@@ -77,4 +77,19 @@ public class CatalogDataBase extends DataBaseMySql<CatalogData> {
             Service.sendMessage("Error al agregar el registro de la catalogo", e);
         }
     }
+
+    @Override
+    public void removeRow(String value) {
+        String sql = "DELETE FROM `Catalogo` WHERE modelo = ?";
+
+        try (Connection connection = getConnection()){
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, value);
+            statement.execute();
+
+        } catch (SQLException e) {
+            Service.sendMessage("Error al eliminar una fila", e);
+        }
+    }
 }

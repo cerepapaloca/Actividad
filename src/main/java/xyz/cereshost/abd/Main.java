@@ -8,10 +8,7 @@ import org.jline.reader.impl.completer.StringsCompleter;
 import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
 import xyz.cereshost.abd.command.CommandHandler;
-import xyz.cereshost.abd.command.commands.ExitCommand;
-import xyz.cereshost.abd.command.commands.HelpCommand;
-import xyz.cereshost.abd.command.commands.ShowCommand;
-import xyz.cereshost.abd.command.commands.addRowCommand;
+import xyz.cereshost.abd.command.commands.*;
 import xyz.cereshost.abd.storage.sql.*;
 
 import java.io.IOException;
@@ -38,7 +35,8 @@ public class Main {
                 new HelpCommand(),
                 new ExitCommand(),
                 new ShowCommand(),
-                new addRowCommand()
+                new AddCommand(),
+                new DeleteCommand()
         );
     }
 

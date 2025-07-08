@@ -81,4 +81,19 @@ public class SellLogDataBase extends DataBaseMySql<LogSellData> {
             Service.sendMessage("Error al agregar el registro", e);
         }
     }
+
+    @Override
+    public void removeRow(String value) {
+        String sql = "DELETE FROM `Ventas` WHERE id = ?";
+
+        try (Connection connection = getConnection()){
+
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, value);
+            statement.execute();
+
+        } catch (SQLException e) {
+            Service.sendMessage("Error al eliminar una fila", e);
+        }
+    }
 }
