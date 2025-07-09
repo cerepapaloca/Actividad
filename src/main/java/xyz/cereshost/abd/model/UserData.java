@@ -9,7 +9,7 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public abstract class UserData {
 
-    private final int dni;
+    private final String dni;
     private final String name;
     private final String address;
     private final int telephone;

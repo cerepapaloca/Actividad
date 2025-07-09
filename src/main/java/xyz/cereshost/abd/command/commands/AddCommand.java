@@ -39,14 +39,14 @@ public class AddCommand extends Command {
             }
             case "cliente" -> {
                 if (arg.length() >= 4){
-                    Main.CLIENT_DATA_BASE.addRow(new ClientData(Integer.parseInt(arg.get(1)), arg.get(2), arg.get(3), Integer.parseInt(arg.get(4))));
+                    Main.CLIENT_DATA_BASE.addRow(new ClientData(arg.get(1), arg.get(2), arg.get(3), Integer.parseInt(arg.get(4))));
                 }else {
                     Service.sendMessage("Tienes que añadir [dni] [nombre] [dirección] [teléfono]");
                 }
             }
             case "vendedor" -> {
                 if (arg.length() >= 4){
-                    Main.SELLER_DATA_BASE.addRow(new SellerData(Integer.parseInt(arg.get(1)), arg.get(2), arg.get(3), Integer.parseInt(arg.get(4))));
+                    Main.SELLER_DATA_BASE.addRow(new SellerData(arg.get(1), arg.get(2), arg.get(3),Integer.parseInt(arg.get(4))));
                 }else {
                     Service.sendMessage("Tienes que añadir [dni] [nombre] [dirección] [teléfono]");
                 }

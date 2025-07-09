@@ -36,7 +36,8 @@ public class ClientDataBase extends DataBaseMySql<ClientData> {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, s);
             ResultSet resultSet = statement.executeQuery();
-            return new ClientData(Integer.parseInt(resultSet.getString(1)), resultSet.getString(2), resultSet.getString(3), Integer.parseInt(resultSet.getString(4)));
+            resultSet.next();
+            return new ClientData(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), Integer.parseInt(resultSet.getString(4)));
         } catch (SQLException e) {
             Service.sendMessage("Error al leer el registro", e);
         }
@@ -53,7 +54,7 @@ public class ClientDataBase extends DataBaseMySql<ClientData> {
              ResultSet resultSet = statement.executeQuery()) {
 
             while (resultSet.next()) {
-                list.add(new ClientData(Integer.parseInt(resultSet.getString(1)), resultSet.getString(2), resultSet.getString(3), Integer.parseInt(resultSet.getString(4))));
+                list.add(new ClientData(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), Integer.parseInt(resultSet.getString(4))));
             }
         }catch (SQLException e) {
             Service.sendMessage("Error al leer todos los registros", e);

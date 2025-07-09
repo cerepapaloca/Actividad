@@ -34,6 +34,7 @@ public class InventoryPiecesDataBase extends DataBaseMySql<PiecesData> {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, s);
             ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
             return new PiecesData(resultSet.getLong(1), resultSet.getTimestamp(2).getTime());
         } catch (SQLException e) {
             Service.sendMessage("Error al leer el registro", e);

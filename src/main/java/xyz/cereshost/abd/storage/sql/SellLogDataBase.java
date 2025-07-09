@@ -40,6 +40,7 @@ public class SellLogDataBase extends DataBaseMySql<LogSellData> {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, s);
             ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
             return new LogSellData(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getTime(6).getTime(), resultSet.getLong(7));
         } catch (SQLException e) {
             Service.sendMessage("Error al leer el registro", e);

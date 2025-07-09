@@ -40,12 +40,10 @@ public class Main {
 
     public static void main(String[] a) throws IOException {
         Terminal terminal = TerminalBuilder.builder().system(true).build();
-        Completer completer = new StringsCompleter("start", "stop", "status", "restart");
         Service.sendMessage("Bienvenido. Usa help para ver todos los comandos\n");
 
         LineReader reader = LineReaderBuilder.builder()
                 .terminal(terminal)
-                .completer(completer)
                 .parser(new DefaultParser())
                 .build();
 

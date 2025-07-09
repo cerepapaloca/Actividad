@@ -37,6 +37,7 @@ public class CatalogDataBase extends DataBaseMySql<CatalogData> {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setString(1, s);
             ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
             return new CatalogData(resultSet.getString(1), resultSet.getString(2), resultSet.getString(3), resultSet.getLong(4));
         } catch (SQLException e) {
             Service.sendMessage("Error al leer el registro", e);

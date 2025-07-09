@@ -171,7 +171,7 @@ public class ShowCommand extends Command {
             case "cliente" -> {
                 if (arg.length() == 2){
                     ClientData data = Main.CLIENT_DATA_BASE.getData(arg.get(1));
-                    List<String> dnis = List.of(String.valueOf(data.getDni()), "DNI");
+                    List<String> dnis = List.of(data.getDni(), "DNI");
                     List<String> names = List.of(data.getName(), "Nombres");
                     List<String> address = List.of(data.getAddress(), "Dirección");
                     List<String> telephones = List.of(String.valueOf(data.getTelephone()), "Teléfonos");
@@ -183,7 +183,7 @@ public class ShowCommand extends Command {
                             .append(Utils.applySpace(1, "Teléfonos", telephones)).append("|")
                             .append("\n");
 
-                    builder.append("\t").append(Utils.applySpace(1, String.valueOf(data.getDni()), dnis)).append("|")
+                    builder.append("\t").append(Utils.applySpace(1, data.getDni(), dnis)).append("|")
                             .append(Utils.applySpace(1, data.getName(), names)).append("|")
                             .append(Utils.applySpace(1, data.getAddress(), address)).append("|")
                             .append(Utils.applySpace(1, String.valueOf(data.getTelephone()), telephones)).append("|")
@@ -192,7 +192,7 @@ public class ShowCommand extends Command {
                     Service.sendMessage(builder.toString());
                 }else {
                     List<ClientData> data = Main.CLIENT_DATA_BASE.getAll();
-                    List<String> dnis = new ArrayList<>(data.stream().map(ClientData::getDni).map(String::valueOf).toList());
+                    List<String> dnis = new ArrayList<>(data.stream().map(ClientData::getDni).toList());
                     List<String> names = new ArrayList<>(data.stream().map(ClientData::getName).toList());
                     List<String> address = new ArrayList<>(data.stream().map(ClientData::getAddress).toList());
                     List<String> telephones = new ArrayList<>(data.stream().map(ClientData::getTelephone).map(String::valueOf).toList());
@@ -209,7 +209,7 @@ public class ShowCommand extends Command {
                             .append("\n");
 
                     for (ClientData catalogData : data) {
-                        builder.append("\t").append(Utils.applySpace(1, String.valueOf(catalogData.getDni()), dnis)).append("|")
+                        builder.append("\t").append(Utils.applySpace(1, catalogData.getDni(), dnis)).append("|")
                                 .append(Utils.applySpace(1, catalogData.getName(), names)).append("|")
                                 .append(Utils.applySpace(1, catalogData.getAddress(), address)).append("|")
                                 .append(Utils.applySpace(1, String.valueOf(catalogData.getTelephone()), telephones)).append("|")
@@ -221,7 +221,7 @@ public class ShowCommand extends Command {
             case "vendedor" -> {
                 if (arg.length() == 2){
                     SellerData data = Main.SELLER_DATA_BASE.getData(arg.get(1));
-                    List<String> dnis = List.of(String.valueOf(data.getDni()), "DNI");
+                    List<String> dnis = List.of(data.getDni(), "DNI");
                     List<String> names = List.of(data.getName(), "Nombres");
                     List<String> address = List.of(data.getAddress(), "Dirección");
                     List<String> telephones = List.of(String.valueOf(data.getTelephone()), "Teléfonos");
@@ -233,7 +233,7 @@ public class ShowCommand extends Command {
                             .append(Utils.applySpace(1, "Teléfonos", telephones)).append("|")
                             .append("\n");
 
-                    builder.append("\t").append(Utils.applySpace(1, String.valueOf(data.getDni()), dnis)).append("|")
+                    builder.append("\t").append(Utils.applySpace(1, data.getDni(), dnis)).append("|")
                             .append(Utils.applySpace(1, data.getName(), names)).append("|")
                             .append(Utils.applySpace(1, data.getAddress(), address)).append("|")
                             .append(Utils.applySpace(1, String.valueOf(data.getTelephone()), telephones)).append("|")
@@ -242,7 +242,7 @@ public class ShowCommand extends Command {
                     Service.sendMessage(builder.toString());
                 }else {
                     List<SellerData> data = Main.SELLER_DATA_BASE.getAll();
-                    List<String> dnis = new ArrayList<>(data.stream().map(SellerData::getDni).map(String::valueOf).toList());
+                    List<String> dnis = new ArrayList<>(data.stream().map(SellerData::getDni).toList());
                     List<String> names = new ArrayList<>(data.stream().map(SellerData::getName).toList());
                     List<String> address = new ArrayList<>(data.stream().map(SellerData::getAddress).toList());
                     List<String> telephones = new ArrayList<>(data.stream().map(SellerData::getTelephone).map(String::valueOf).toList());
